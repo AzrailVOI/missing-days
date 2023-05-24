@@ -1,0 +1,16 @@
+export enum MessageEnum {
+    none = 0,
+    message = 1,
+    loginData = 2,
+    userData = 3,
+    weekRequest = 4,
+    weekResponse = 5,
+    rsaKey = 6,
+    secretKey = 7,
+    checkData = 8,
+    notify = 9,
+    statisticRequest = 10,
+    statisticResponse = 11,
+    beforeStatisticRequest = 12,
+    beforeStatisticResponse = 13,
+}

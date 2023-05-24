@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Missing_days.MainPage">
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Image
+                Source="logo.png"
+                MaximumWidthRequest="40"
+                MaximumHeightRequest="40"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Label 
+                Text="Вход"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <ScrollView HorizontalOptions="FillAndExpand">
+        <Frame
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start">
+            <VerticalStackLayout
+                HorizontalOptions="Start"
+                VerticalOptions="Fill">
+                <Label
+                    Text="Вход"
+                    SemanticProperties.HeadingLevel="Level1"
+                    SemanticProperties.Description="Чё пялишь"
+                    FontSize="18"
+                    HorizontalOptions="Center" />
+                <Frame
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand">
+                    <VerticalStackLayout>
+                        <Label
+                            Text="Логин"
+                            SemanticProperties.Description="Чё пялишь"
+                            FontSize="18"
+                            HorizontalOptions="Fill" />
+                        <Entry
+                            x:Name="entryLogin"
+                            TextChanged="OnEntryLoginTextChanged"
+                            Placeholder="Логин..."
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand" >
+                        </Entry>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame
+                    HorizontalOptions="Fill"
+                    VerticalOptions="StartAndExpand">
+                    <StackLayout>
+                        <Label
+                            Text="Пароль"
+                            SemanticProperties.Description="Чё пялишь"
+                            FontSize="18"
+                            HorizontalOptions="Start" />
+                        <StackLayout Orientation="Horizontal">
+                            <Entry
+                                x:Name="entryPassword"
+                                TextChanged="OnEntryPasswordTextChanged"
+                                Placeholder="Пароль..."
+                                IsPassword="{Binding Source={x:Reference CheckBoxIsPassword}, Path=IsChecked, Converter={StaticResource InverseBooleanConverter}}"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="CenterAndExpand" >
+                                
+                            </Entry>
+                            <CheckBox x:Name ="CheckBoxIsPassword" IsChecked="False"/>
+                            <Label Text="Показать"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <HorizontalStackLayout MaximumHeightRequest="40">
+                    <Button
+                        x:Name="ButtonLogin"
+                        Text="Войти"
+                        SemanticProperties.Hint="Попытка не пытка"
+                        Clicked="OnButtonLoginClicked"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                    </Button>
+                    <CheckBox x:Name="checkBoxSaveLogin"
+                        CheckedChanged="OnCheckBoxSaveLoginCheckChanged"
+                        IsChecked="False"
+                        VerticalOptions="Center"/>
+                    <Label
+                        Text="Запомнить"
+                        VerticalOptions="Center"/>
+                    <ActivityIndicator x:Name="ActivityIndicatorLogin" IsRunning="false" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Missing_days.AboutPage">
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Image
+                Source="logo.png"
+                MaximumWidthRequest="40"
+                MaximumHeightRequest="40"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Label 
+                Text="О приложении"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <ScrollView>
+        <Frame HorizontalOptions="Fill" VerticalOptions="Start">
+            <VerticalStackLayout>
+                <Label 
+                    Text="Команда &quot;Чертилы&quot;"
+                    FontSize="Title"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+                <Frame HorizontalOptions="Fill">
+                    <StackLayout>
+                        <Label 
+                            Text="Разработчик приложения"
+                            FontSize="Title"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                        <Label 
+                            Text="Еремкин Г.А."
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame HorizontalOptions="Fill">
+                    <StackLayout>
+                        <Label 
+                            Text="Разработчик сервера"
+                            FontSize="Title"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                        <Label 
+                            Text="Овчарук В.И."
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Label 
+            Text="Сделано в Подвале"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

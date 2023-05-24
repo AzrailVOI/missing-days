@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Missing_days.MissingCheck">
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Image
+                Source="logo.png"
+                MaximumWidthRequest="40"
+                MaximumHeightRequest="40"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Label 
+                Text="Неделя"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <StackLayout VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="Start" VerticalScrollBarVisibility="Always">
+            <VerticalStackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="Start">
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <Label 
+                        x:Name="labelTittle"
+                        Text=" Четная"
+                        FontSize="Title"
+                        HorizontalOptions="Center" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Start">
+                        <Frame
+                            Margin="30,0,0,0"
+                            WidthRequest="30"
+                            HeightRequest="30"
+                            HorizontalOptions="StartAndExpand">
+                            <ImageButton Source="caret_left_solid.png" Aspect="Fill"
+                            Clicked="OnButtonPrevClicked"/>
+                        </Frame>
+                        <!--<Frame WidthRequest="30"
+                            HeightRequest="30"
+                            HorizontalOptions="Center">
+                            <ImageButton x:Name="imageButtonFill" Aspect="Fill"
+                                     Source="check_solid.png"
+                                    Clicked="OnButtonFillClicked"/>
+                        </Frame>-->
+                        <ActivityIndicator WidthRequest="30" HeightRequest="30" IsRunning="False"/>
+                        <Frame WidthRequest="30"
+                            HeightRequest="30"
+                            HorizontalOptions="Center">
+                            <ImageButton x:Name="imageButtonRefresh" Aspect="Fill"
+                                     Source="rotate_right_solid.png"
+                                    Clicked="OnButtonRefreshClicked"/>
+                        </Frame>
+                        <ActivityIndicator WidthRequest="30" HeightRequest="30" x:Name="activityIndicatorRefresh" IsRunning="False"/>
+                        <Frame
+                            Margin="0,0,30,0"
+                            WidthRequest="30"
+                            HeightRequest="30"
+                            HorizontalOptions="EndAndExpand">
+                            <ImageButton Source="caret_right_solid.png" Aspect="Fill"
+                            Clicked="OnButtonNextClicked"/>
+                        </Frame>
+                    </StackLayout>
+                    <CollectionView 
+                        x:Name="dayCollectionView"
+                        ItemsSource="{Binding dayInWeeks}"
+                        VerticalScrollBarVisibility="Default"
+                        MinimumHeightRequest="700"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="Start">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout
+                            Orientation="Horizontal"
+                            ItemSpacing="5"
+                            SnapPointsAlignment="End"
+                            SnapPointsType="None"
+                            />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame HasShadow="True"
+                               BorderColor="{StaticResource Gray300}"
+                               CornerRadius="6"
+                               BackgroundColor="{Binding background_color}"
+                               Margin="6"
+                               Padding="3"
+                               WidthRequest="300"
+                               MaximumWidthRequest="300"
+                               IsEnabled="{Binding current}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="StartAndExpand">
+                                    <StackLayout
+                                VerticalOptions="StartAndExpand"
+                                HorizontalOptions="Start">
+                                        <Label
+                                    Text="{Binding name}"
+                                    FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                    LineBreakMode="TailTruncation" />
+                                        <CollectionView 
+                                    x:Name="pairCollectionView"
+                                    VerticalScrollBarVisibility="Always"
+                                    VerticalOptions="Fill"
+                                    ItemsSource="{Binding pairInDays}">
+                                            <CollectionView.ItemsLayout>
+                                                <LinearItemsLayout
+                                                Orientation="Vertical"
+                                                ItemSpacing="5"
+                                                SnapPointsAlignment="End"
+                                                SnapPointsType="None"
+                                                />
+                                            </CollectionView.ItemsLayout>
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Frame HasShadow="True"
+                                                   BorderColor="{StaticResource Gray300}"
+                                                   BackgroundColor="{Binding background_color}"
+                                                   CornerRadius="6"
+                                                   Padding="6"
+                                                   Margin="3"
+                                                   HorizontalOptions="Fill"
+                                                   SemanticProperties.Description="{Binding reason}"
+                                                        VerticalOptions="Fill">
+                                                        <Frame.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding FrameClickedCommand}"
+                              CommandParameter="{Binding reason}" />
+                                                        </Frame.GestureRecognizers>
+                                                        <StackLayout>
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <StackLayout HorizontalOptions="StartAndExpand">
+                                                                    <Label
+                                                                    Text="{Binding time}"
+                                                                    FontSize="Title"
+                                                                    FontAttributes="None" />
+                                                                    <Label
+                                                                    Text="{Binding subject_name}"
+                                                                    FontAttributes="Bold" />
+                                                                </StackLayout>
+                                                                <Label
+                                                        Text="   "
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center" />
+                                                                <Image HorizontalOptions="End" VerticalOptions="Start" Aspect="Fill" Source="{Binding check_image}" MaximumWidthRequest="20" MaximumHeightRequest="25" />
+                                                            </StackLayout>
+                                                            <Label
+                                                   Text=" "
+                                                   VerticalOptions="End" />
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                                                <Label
+                                                   Text="{Binding teacher_group}"
+                                                        TextColor="Gray"
+                                                   FontAttributes="None"
+                                                                    HorizontalOptions="Start"/>
+                                                                <Label
+                                                   Text="{Binding teacher_name}"
+                                                   FontAttributes="None"
+                                                                    HorizontalOptions="StartAndExpand" />
+                                                            </StackLayout>
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <Label
+                                                        Text="{Binding room_number}"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        VerticalOptions="Center" />
+                                                                <Label
+                                                        Text="   "
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center" />
+                                                                <Label
+                                                        Text="{Binding subject_type}"
+                                                        TextColor="Gray"
+                                                        HorizontalOptions="EndAndExpand"
+                                                        VerticalOptions="Center" />
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                        <Frame VerticalOptions="FillAndExpand" Opacity="0">
+
+                                        </Frame>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

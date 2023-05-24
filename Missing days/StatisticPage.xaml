@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Missing_days.StatisticPage"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             Title="Статистика">
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Image
+                Source="logo.png"
+                MaximumWidthRequest="40"
+                MaximumHeightRequest="40"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Label 
+                Text="Статистика"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="FillAndExpand">
+            <Frame VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <Label 
+                        Text="Статистика"
+                        FontSize="Medium"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+                    <StackLayout VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal">
+                                <Picker x:Name="pickerDate"  ItemsSource="{Binding pickerDateList}" SelectedIndex="0" SelectedIndexChanged="OnPickerDateSelectedIndexChanged"/>
+                                <Frame
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                VerticalOptions="Start"
+                                HorizontalOptions="Start">
+                                    <ImageButton x:Name="imageButtonRefresh" Aspect="Fill"
+                                     Source="rotate_right_solid.png"
+                                    Clicked="OnButtonRefreshClicked"/>
+                                </Frame>
+                            </StackLayout>
+                            <Picker x:Name="pickerSubject" ItemsSource="{Binding pickerSubjectList}" SelectedIndex="0" SelectedIndexChanged="OnPickerSubjectSelectedIndexChanged">
+                                <Picker.ItemDisplayBinding>
+                                    <Binding Path="Name" />
+                                </Picker.ItemDisplayBinding>
+                            </Picker>
+                            <Picker x:Name="pickerSubjectType" ItemsSource="{Binding pickerSubjectTypeList}" SelectedIndex="0" SelectedIndexChanged="OnPickerSubjectTypeSelectedIndexChanged">
+                                <Picker.ItemDisplayBinding>
+                                    <Binding Path="Name" />
+                                </Picker.ItemDisplayBinding>
+                            </Picker>
+                            <Picker x:Name="pickerGroup" ItemsSource="{Binding pickerGroupList}" SelectedIndex="0" SelectedIndexChanged="OnPickerGroupSelectedIndexChanged">
+                                <Picker.ItemDisplayBinding>
+                                    <Binding Path="Name" />
+                                </Picker.ItemDisplayBinding>
+                            </Picker>
+                            <Picker x:Name="pickerStudent" ItemsSource="{Binding pickerStudentList}" SelectedIndex="0" SelectedIndexChanged="OnPickerStudentSelectedIndexChanged">
+                                <Picker.ItemDisplayBinding>
+                                    <Binding Path="Name" />
+                                </Picker.ItemDisplayBinding>
+                            </Picker>
+                        </StackLayout>
+                        <Frame BindingContext="{Binding barViewModel}" VerticalOptions="Start" >
+                            <lvc:CartesianChart
+                                x:Name="chart"
+                                HeightRequest="500"
+                                VerticalOptions="Start"
+                                Series="{Binding Series}">
+                            </lvc:CartesianChart>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

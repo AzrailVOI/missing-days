@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             x:Class="Missing_days.MissingPage">
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Image
+                Source="logo.png"
+                MaximumWidthRequest="40"
+                MaximumHeightRequest="40"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Label 
+                Text="Список студентов"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <ScrollView VerticalOptions="FillAndExpand" x:Name="scrollViewRoot">
+        <StackLayout VerticalOptions="FillAndExpand" x:Name="stackLayoutRoot">
+            <VerticalStackLayout VerticalOptions="FillAndExpand">
+                <CollectionView 
+                        x:Name="collectionViewGroupInPair"
+                        ItemsSource="{Binding groupsInPair}"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="Start">
+                    <CollectionView.ItemTemplate VerticalOptions="FillAndExpand">
+                        <DataTemplate>
+                            <Frame
+                               BackgroundColor="{Binding background_color}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand">
+                                <StackLayout
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="Fill">
+                                    <Label
+                                    Text="{Binding name}"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Start"
+                                    LineBreakMode="TailTruncation" />
+                                    <CollectionView 
+                                    x:Name="collectionViewUserInGroup"
+                                    VerticalScrollBarVisibility="Always"
+                                    VerticalOptions="FillAndExpand"
+                                    ItemsSource="{Binding usersInGroup}">
+                                        <CollectionView.ItemTemplate VerticalOptions="Fill">
+                                            <DataTemplate>
+                                                <Frame 
+                                                    Margin="0,0,0,-2"
+                                                   BackgroundColor="{Binding background_color}"
+                                                    MinimumHeightRequest="60"
+                                                    HeightRequest="60"
+                                                   HorizontalOptions="Fill"
+                                                    VerticalOptions="FillAndExpand">
+                                                    <StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Orientation="Vertical" >
+                                                        <Label Text="{Binding name}" FontSize="Micro"  HorizontalOptions="Start"/>
+                                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Orientation="Horizontal" >
+                                                            <Editor BackgroundColor="WhiteSmoke" Text="{Binding reason}" AutoSize="TextChanges" FontSize="Micro" VerticalOptions="Start"  HorizontalOptions="FillAndExpand" Completed="Entry_Completed" IsVisible="{Binding Source={x:Reference CheckBoxMissing}, Path=IsChecked, Converter={StaticResource InverseBooleanConverter}}" />
+                                                            <CheckBox x:Name="CheckBoxMissing" IsChecked="{Binding missing}" HorizontalOptions="End" VerticalOptions="End" CheckedChanged="CheckBox_CheckedChanged" IsEnabled="{Binding canEditMissing}"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+            <Button x:Name="buttonSend" Text="Отметить" Clicked="OnButtonSendClicked"/>
+        </StackLayout> 
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Missing_days.UserProfile"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             Title="Профиль">
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Image
+                Source="logo.png"
+                MaximumWidthRequest="40"
+                MaximumHeightRequest="40"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Label 
+                Text="Профиль"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <ScrollView>
+        <StackLayout>
+            <StackLayout>
+                <Frame>
+                    <StackLayout>
+                        <Label 
+                            Text="Основные данные"
+                            FontSize="Medium"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                        <Frame>
+                            <StackLayout>
+                                <Label 
+                                    Text="ФИО"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                <Frame Style="{StaticResource FrameEntry}">
+                                    <Label
+                                    x:Name="entryName"
+                                    Text="{Binding name}"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Fill" />
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                        <Frame>
+                            <StackLayout>
+                                <Label 
+                                    Text="Роль"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                <Frame Style="{StaticResource FrameEntry}">
+                                    <Label
+                                    x:Name="entryRole"
+                                    Text="{Binding role}"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                        <Frame>
+                            <StackLayout>
+                                <Label 
+                                    Text="Логин"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                <Frame Style="{StaticResource FrameEntry}">
+                                    <Label
+                                    x:Name="entryLogin"
+                                    Text="{Binding login}"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label 
+                            Text="Контакты"
+                            FontSize="Medium"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                        <Frame>
+                            <StackLayout>
+                                <Label 
+                                    Text="Почта"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                <Frame Style="{StaticResource FrameEntry}">
+                                    <Label
+                                    x:Name="entryEmail"
+                                    Text="{Binding email}"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                        <Frame>
+                            <StackLayout>
+                                <Label 
+                                    Text="Телефон"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                <Frame Style="{StaticResource FrameEntry}">
+                                    <Label
+                                    x:Name="entryPhone"
+                                    Text="{Binding phone}"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start" />
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <Button
+            x:Name="ButtonLoginOut"
+            Text="Выйти"
+            SemanticProperties.Hint="Попытка не пытка"
+            Clicked="OnButtonLoginOutClicked"
+            HorizontalOptions="Center"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

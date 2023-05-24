@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Missing_days.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Missing_days"
+    FlyoutHeaderBehavior="CollapseOnScroll"
+    Shell.FlyoutBehavior="Flyout">
+    <!--CurrentItem = "{x:Reference ShellContentSetting}"-->
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            x:Name="ShellContentLogin"
+            FlyoutItemIsVisible="True"
+            IsVisible="True"
+            Title="Вход"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="Вход"
+            Icon="user_solid.png"
+            FlyoutIcon="user_solid.png">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            x:Name="ShellContentUserProfile"
+            FlyoutItemIsVisible="False"
+            IsVisible="False"
+            Title="Профиль"
+            ContentTemplate="{DataTemplate local:UserProfile}"
+            Route="Профиль"
+            Icon="user_solid.png"
+            FlyoutIcon="user_solid.png">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            x:Name="ShellContentStatisticPage"
+            FlyoutItemIsVisible="False"
+            IsVisible="False"
+            Title="Статистика"
+            ContentTemplate="{DataTemplate local:StatisticPage}"
+            Route="Статистика"
+            Icon="chart_simple_solid.png"
+            FlyoutIcon="chart_simple_solid.png">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            x:Name="ShellContentMissingCheck"
+            FlyoutItemIsVisible="False"
+            IsVisible="False"
+            Title="Расписание"
+            ContentTemplate="{DataTemplate local:MissingCheck}"
+            Route="Расписание"
+            Icon="calendar_days_solid.png"
+            FlyoutIcon="calendar_days_solid.png">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            x:Name="ShellContentSetting"
+            Title="Настройки"
+            ContentTemplate="{DataTemplate local:AppSettingxaml}"
+            Route="Настройки"
+            Icon="gears_solid.png"
+            FlyoutIcon="gears_solid.png">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent 
+            Title="О приложении"
+            ContentTemplate="{DataTemplate local:AboutPage}"
+            Icon="circle_info_solid.png"
+            FlyoutIcon="circle_info_solid.png"/>
+    </FlyoutItem>
+    <!--<Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="0.2*,0.8*">
+                <Image Source="{Binding FlyoutIcon}"
+                       Margin="5"
+                       HeightRequest="45" />
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>-->
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Transparent"
+                  HeightRequest="200">
+                <Image Aspect="Fill"
+                       Source="logo.png"
+                       Opacity="0.6" />
+                <!--<Label Text="Посещаемость"
+                       TextColor="{StaticResource White}"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />-->
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout>
+                <Label Text="created by Чертилы"
+                       TextColor="{StaticResource Gray500}"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+                <Label Text="v0.0.1"
+                       TextColor="{StaticResource Gray500}"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+
+</Shell>

@@ -1,0 +1,77 @@
+is_global = true
+build_property.TargetFramework = net6.0-maccatalyst
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Missing_days
+build_property.ProjectDir = C:\Users\ggtna\Desktop\Praktika\Missing days\
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/AboutPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.AboutPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AboutPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AboutPage.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/AppSetting.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.AppSetting.xaml
+build_metadata.AdditionalFiles.TargetPath = AppSetting.xaml
+build_metadata.AdditionalFiles.RelativePath = AppSetting.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/MissingCheck.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.MissingCheck.xaml
+build_metadata.AdditionalFiles.TargetPath = MissingCheck.xaml
+build_metadata.AdditionalFiles.RelativePath = MissingCheck.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/MissingPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.MissingPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MissingPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MissingPage.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/StatisticPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.StatisticPage.xaml
+build_metadata.AdditionalFiles.TargetPath = StatisticPage.xaml
+build_metadata.AdditionalFiles.RelativePath = StatisticPage.xaml
+
+[C:/Users/ggtna/Desktop/Praktika/Missing days/UserProfile.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Missing_days.UserProfile.xaml
+build_metadata.AdditionalFiles.TargetPath = UserProfile.xaml
+build_metadata.AdditionalFiles.RelativePath = UserProfile.xaml
