@@ -48,7 +48,7 @@
                             VerticalOptions="Center" 
                             HorizontalOptions="Center" />
                         <Label 
-                            Text="Овчарук В.И."
+                            Text="Некто В.И."
                             VerticalOptions="Center" 
                             HorizontalOptions="Center" />
                     </StackLayout>
